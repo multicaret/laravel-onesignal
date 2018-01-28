@@ -1,0 +1,43 @@
+{
+  "name": "liliom/laravel-onesignal",
+  "description": "Laravel Wrapper for OneSignal Web API",
+  "keywords": [
+    "onesignal",
+    "one signal",
+    "webpush",
+    "server side notification",
+    "push",
+    "laravel",
+    "laravel 5"
+  ],
+  "type": "library",
+  "require": {
+    "php": ">=5.5.9",
+    "guzzlehttp/guzzle": "^6.2",
+    "illuminate/support": "4.*|5.*",
+    "symfony/psr-http-message-bridge": "1.*"
+  },
+  "require-dev": {
+    "laravel/laravel": "5.*",
+    "vlucas/phpdotenv": "^2.2"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mohamed Kawsara",
+      "email": "mkwsra@gmail.com",
+      "homepage": "http://mkwsra.com"
+    },
+    {
+      "name": "Hussam Abd",
+      "email": "hussam3bd@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Liliom\\OneSignal\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
