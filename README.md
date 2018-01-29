@@ -11,17 +11,18 @@ Before you start installing this service, please complete your OneSignal setup a
 First, you'll need to require the package with Composer:
 
 ```sh
-composer require Liliom/onesignal-laravel
+composer require liliom/laravel-onesignal
 ```
 
-Aftwards, run `composer update` from your command line.
 
-Then, update `config/app.php` by adding an entry for the service provider.
+Update your `config/app.php` by adding the following service provider.
 
 ```php
 'providers' => [
 	// ...
-	Liliom\OneSignal\OneSignalServiceProvider::class
+	// ...
+	Liliom\OneSignal\OneSignalServiceProvider::class,
+	// ...
 ];
 ```
 
@@ -36,22 +37,25 @@ Then, register class alias by adding an entry in aliases section
 ```
 
 
-Finally, from the command line again, run 
+Finally, publish the config file by running:
 
 ```
 php artisan vendor:publish --tag=config
 ``` 
-
-to publish the default configuration file. 
-This will publish a configuration file named `onesignal.php` which includes your OneSignal authorization keys.
-
-> **Note:** If the previous command does not publish the config file successfully, please check the steps involving *providers* and *aliases* in the `config/app.php` file.
+ 
+The command above shall publish a configuration file named `onesignal.php` which includes your OneSignal authorization keys.
 
 
 ## Configuration
 
-You need to fill in `onesignal.php` file that is found in your applications `config` directory.
-`app_id` is your *OneSignal App ID* and `rest_api_key` is your *REST API Key*.
+Please fill the file `config/onesignal.php`.
+`app_id` is your *OneSignal App ID* and `rest_api_key` is your *REST API Key*, where `user_auth_key` is optional.
+ 
+Or alternatively you can fill your settings in `.env` file as the following:
+```
+ONE_SIGNAL_APP_ID=
+ONE_SIGNAL_REST_API_KEY=
+```
 
 ## Usage
 
@@ -79,6 +83,12 @@ After storing a user's tokens in a table, you can simply send a message with
     
 `$userId` is the user's unique id where he/she is registered for notifications. Read https://documentation.onesignal.com/docs/web-push-tagging-guide for additional details.
 `$url` , `$data` , `$buttons` and `$schedule` fields are exceptional. If you provide a `$url` parameter, users will be redirecting to that url.
+
+### Sending a Notification To A Specific User via Email Address
+
+If you are using the option to set the userId as email address of the user then use the following function
+
+    OneSignal::sendNotificationToUserByEmail("Some Message", $email, $filters = [], $segment = ['All'], $url = null, $data = null, $buttons = null, $schedule = null, $smallIcon = null, $LargeIcon = null, $bigPicture = null, $androidAccentCircleColor = null, $androidAccentLedColor = null, $sound = null )
 
 
 ### Sending a Notification To Segment
