@@ -38,6 +38,13 @@
       "Liliom\\OneSignal\\": "src/"
     }
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Liliom\\OneSignal\\OneSignalServiceProvider"
+      ]
+    }
+  },
   "minimum-stability": "stable",
   "prefer-stable": true
 }
