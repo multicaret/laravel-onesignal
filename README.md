@@ -14,6 +14,11 @@ First, you'll need to require the package with Composer:
 composer require liliom/laravel-onesignal
 ```
 
+### Laravel 5.5 and up
+
+You don't have to do anything else, this package uses the Package Auto-Discovery feature, and should be available as soon as you install it via Composer.
+
+### Laravel 5.4 and down
 
 Update your `config/app.php` by adding the following service provider.
 
