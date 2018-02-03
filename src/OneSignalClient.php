@@ -259,7 +259,7 @@ class OneSignalClient
             $filters = [["field" => "email", "value" => $email]];
         }
 
-        $this->sendNotificationToFiltersToSegment($message, $filters, $segment, $url, $data, $buttons, $schedule,
+        return $this->sendNotificationToFiltersToSegment($message, $filters, $segment, $url, $data, $buttons, $schedule,
             $smallIcon, $LargeIcon, $bigPicture, $androidAccentCircleColor, $androidAccentLedColor, $sound);
     }
 
@@ -327,7 +327,7 @@ class OneSignalClient
             $params['android_sound'] = $sound;
         }
 
-        $this->sendNotificationCustom($params);
+        return $this->sendNotificationCustom($params);
     }
 
     /**
@@ -356,13 +356,13 @@ class OneSignalClient
             $parameters['included_segments'] = ['all'];
         }
         $parameters = array_merge($parameters, $this->additionalParams);
-        \Log::alert('from OneSignal', $parameters);
+//        \Log::alert('from OneSignal', $parameters);
 
         $this->headers['body'] = json_encode($parameters);
         $this->headers['buttons'] = json_encode($parameters);
         $this->headers['verify'] = false;
 
-        return $this->post(self::ENDPOINT_NOTIFICATIONS);
+        return json_decode($this->post(self::ENDPOINT_NOTIFICATIONS)->getBody()->getContents());
     }
 
     /**
