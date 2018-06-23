@@ -141,7 +141,7 @@ class OneSignalClient
         $schedule = null
     ) {
         $contents = [
-            "en" => $message
+            'en' => mb_convert_encoding($message, 'UTF-8', 'UTF-8')
         ];
 
         $params = [
