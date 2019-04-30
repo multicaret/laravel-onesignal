@@ -45,7 +45,8 @@ Then, register class alias by adding an entry in aliases section
 Finally, publish the config file by running:
 
 ```
-php artisan vendor:publish --tag=config
+php artisan vendor:publish --provider="Liliom\OneSignal\OneSignalServiceProvider"
+php artisan vendor:publish --provider="Laravelme\Acquaintances\AcquaintancesServiceProvider"
 ``` 
  
 The command above shall publish a configuration file named `onesignal.php` which includes your OneSignal authorization keys.

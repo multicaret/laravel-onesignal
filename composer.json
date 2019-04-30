@@ -27,10 +27,6 @@
       "name": "Mohamed Kawsara",
       "email": "mkwsra@gmail.com",
       "homepage": "http://mkwsra.com"
-    },
-    {
-      "name": "Hussam Abd",
-      "email": "hussam3bd@gmail.com"
     }
   ],
   "autoload": {
